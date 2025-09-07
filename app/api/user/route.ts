@@ -14,6 +14,6 @@ export async function POST(req: NextRequest) {
     console.log(req.nextUrl.searchParams.get("name"));
 
     return NextResponse.json({
-        message: "You are signed up"
+        body
     })
 }
