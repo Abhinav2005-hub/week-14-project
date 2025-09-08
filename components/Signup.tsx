@@ -1,5 +1,6 @@
 "use client"
 
+import { signup } from "@/app/actions/user";
 import axios from "axios"
 import { useState } from "react"
 
@@ -19,11 +20,9 @@ export function Signup() {
                }} className="p-2 m-2" type="password" placeholder="password"></input>
                <br />
                <div className="mt-4 flex justify-center">
-                  <button type="button" onClick={() => {
-                    axios.post("http://localhost:3001/api/user", {
-                        email,
-                        password
-                    })
+                  <button type="button" onClick={async () => {
+                      const res = await signup(email, password);
+                      console.log(res);
                   }}>Sign up</button>
                </div>
            </div>
